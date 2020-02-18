@@ -34,7 +34,7 @@ jobs:
       uses: treosh/lighthouse-ci-action@v2
       with:
           urls: |
-            http://localhost:3000
+            http://localhost:9000
           runs: 3
           budgetPath: './performance-budget.json'
 
