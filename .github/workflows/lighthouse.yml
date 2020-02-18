@@ -3,7 +3,7 @@ on: pull_request
 
 jobs:
   build_app:
-    name: Build app
+    name: Lighthouse Audit
     runs-on: ubuntu-16.04
 
     strategy:
@@ -43,6 +43,9 @@ jobs:
     #   with:
     #     name: lighthouse-results
     #     path: '.lighthouseci'
+
+    - name: Install Lighthouse
+      run: npm install -g @lhci/cli@0.3.x
 
     - name: Lighthouse CI
       env:
