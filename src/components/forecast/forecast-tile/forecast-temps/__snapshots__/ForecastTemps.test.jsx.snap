@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ForecastTemps snapshot should match snapshot 1`] = `
+<div
+  className="forecastTemps"
+>
+  <p
+    className="textElem"
+  >
+    Min: 12°C
+  </p>
+  <p
+    className="textElem"
+  >
+    Max: 21°C
+  </p>
+</div>
+`;

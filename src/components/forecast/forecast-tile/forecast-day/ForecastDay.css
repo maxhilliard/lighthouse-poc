@@ -1,0 +1,5 @@
+.forecastDay {
+    composes: forecastDay from '../ForecastTile.css';
+    font-size: 30px;
+    margin: 10px;
+}

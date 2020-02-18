@@ -1,0 +1,85 @@
+{
+  "name": "lighthouse-poc",
+  "version": "1.0.0",
+  "description": "Lighthouse POC",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "webpack-dev-server --mode development --hot",
+    "build": "webpack --mode production",
+    "lint": "eslint --ext .js,.jsx src/",
+    "build-docker-img": "yarn build && ./internals/build/build-docker-img.sh",
+    "cypress": "cypress open",
+    "cypress-percy": "percy exec -- cypress run"
+  },
+  "repository": "git+https://github.com/maxhilliard/lighthouse-poc.git",
+  "keywords": [
+    "react",
+    "forecast",
+    "eslint",
+    "docker",
+    "nginx"
+  ],
+  "author": "Max Hilliard",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/maxhilliard/lighthouse-poc/issues"
+  },
+  "homepage": "https://github.com/maxhilliard/lighthouse-poc#readme",
+  "devDependencies": {
+    "@percy/cypress": "2.2.0",
+    "babel-core": "6.26.3",
+    "babel-jest": "23.4.2",
+    "babel-loader": "7.1.5",
+    "babel-plugin-transform-runtime": "6.23.0",
+    "babel-preset-env": "1.7.0",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-stage-1": "6.24.1",
+    "copy-webpack-plugin": "4.5.3",
+    "css-loader": "1.0.0",
+    "cypress": "3.8.1",
+    "enzyme-to-json": "3.3.4",
+    "eslint": "4.19",
+    "eslint-config-airbnb": "17.0.0",
+    "eslint-import-resolver-webpack": "0.10.1",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.1",
+    "eslint-plugin-react": "7.10.0",
+    "html-webpack-plugin": "3.2.0",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "23.4.2",
+    "nock": "10.0.1",
+    "postcss-icss-values": "2.0.1",
+    "postcss-loader": "2.1.6",
+    "pre-commit": "1.2.2",
+    "pre-push": "0.1.1",
+    "style-loader": "0.21.0",
+    "webpack": "4.16.3",
+    "webpack-cli": "3.1.0",
+    "webpack-dev-server": "3.1.5"
+  },
+  "dependencies": {
+    "autoprefixer": "9.0.2",
+    "date-fns": "1.29.0",
+    "enzyme": "3.3.0",
+    "enzyme-adapter-react-16": "1.1.1",
+    "isomorphic-fetch": "2.2.1",
+    "prop-types": "15.6.2",
+    "react": "16.4.1",
+    "react-dom": "16.4.1"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/",
+    "setupFiles": [
+      "<rootDir>/enzyme.config.js"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/internals/test/setupTests.js",
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
+  }
+}
