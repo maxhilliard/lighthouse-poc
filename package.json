@@ -8,9 +8,7 @@
     "start": "webpack-dev-server --mode development --hot",
     "build": "webpack --mode production",
     "lint": "eslint --ext .js,.jsx src/",
-    "build-docker-img": "yarn build && ./internals/build/build-docker-img.sh",
-    "cypress": "cypress open",
-    "cypress-percy": "percy exec -- cypress run"
+    "build-docker-img": "yarn build && ./internals/build/build-docker-img.sh"
   },
   "repository": "git+https://github.com/maxhilliard/lighthouse-poc.git",
   "keywords": [
