@@ -30,16 +30,21 @@ jobs:
     - name: Run container
       run: docker run -d -p 9000:80 react-forecast-img
 
-    - name: Lighthouse CI Action
-      uses: treosh/lighthouse-ci-action@v2
-      with:
-          urls: |
-            http://localhost:9000
-          runs: 3
-          budgetPath: './performance-budget.json'
+    # - name: Lighthouse CI Action
+    #   uses: treosh/lighthouse-ci-action@v2
+    #   with:
+    #       urls: |
+    #         http://localhost:9000
+    #       runs: 3
+    #       budgetPath: './performance-budget.json'
 
-    - name: Save performance results
-      uses: actions/upload-artifact@v1
-      with:
-        name: lighthouse-results
-        path: '.lighthouseci'
+    # - name: Save performance results
+    #   uses: actions/upload-artifact@v1
+    #   with:
+    #     name: lighthouse-results
+    #     path: '.lighthouseci'
+
+    - name: Lighthouse CI
+      env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      run: LHCI_GITHUB_APP_TOKEN=$LHCI_GITHUB_APP_TOKEN lhci autorun
