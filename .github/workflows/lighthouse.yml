@@ -1,0 +1,39 @@
+name: Lighthouse workflow
+on: pull_request
+
+jobs:
+  build_app:
+    name: Lighthouse Audit
+    runs-on: ubuntu-16.04
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Bundle JS
+      run: npm run build
+
+    - name: Build image
+      run: docker build -f ./internals/build/Dockerfile -t react-forecast-img .
+
+    - name: Run container
+      run: docker run -d -p 9000:80 react-forecast-img
+
+    - name: Install Lighthouse
+      run: npm install -g @lhci/cli@0.3.x
+
+    - name: Lighthouse CI
+      env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      run: LHCI_GITHUB_APP_TOKEN=$LHCI_GITHUB_APP_TOKEN lhci autorun

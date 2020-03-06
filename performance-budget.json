@@ -1,0 +1,21 @@
+[
+    {
+      "path": "/*",
+      "resourceSizes": [
+        {
+          "resourceType": "document",
+          "budget": 1888888
+        },
+        {
+          "resourceType": "total",
+          "budget": 20000000
+        }
+      ],
+      "resourceCounts": [
+        {
+          "resourceType": "third-party",
+          "budget": 1000000
+        }
+      ]
+    }
+  ]
